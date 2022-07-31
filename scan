@@ -19,7 +19,7 @@ rm $basefolder/tmp_$3
 
 avail(){
 
-cheker=$(curl -s -I https://pse.kominfo.go.id/static/json-static/$1/0.json | grep -i "^Content-Type:" | awk '{print $2}')
+cheker=$(curl -s -I $baseurl/$1/0.json | grep -i "^Content-Type:" | awk '{print $2}')
     # Check if the folder is available
     if [[ $cheker == *"application/json"* ]]; then
     totalpage=$(curl -Ss "$baseurl/$1/0.json" | jq '.meta.page.lastPage')
