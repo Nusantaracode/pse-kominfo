@@ -15,6 +15,7 @@ jobs:
       - name: scrape run
         run: | 
           bash scan
+          curl -Ss "https://pse.kominfo.go.id/static/json-static/generationInfo.json" | jq -r '.data.generated_at' > LAST.txt
       - name: Commit
         run: |
           git config --local user.name "github-actions[bot]"
