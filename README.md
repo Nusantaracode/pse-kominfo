@@ -25,7 +25,7 @@ untuk scan data silahkan ikuti perintah ini:
 Lihat tampilan dashboard (google data studio) :
 
 
-[https://datastudio.google.com/reporting/90c1920c-d21f-4f9b-ac02-75c4b0d79089](https://datastudio.google.com/reporting/90c1920c-d21f-4f9b-ac02-75c4b0d79089)
+[https://datastudio.google.com/embed/reporting/90c1920c-d21f-4f9b-ac02-75c4b0d79089](https://datastudio.google.com/embed/reporting/90c1920c-d21f-4f9b-ac02-75c4b0d79089)
 
 
 datasheet ini akan diupdate otomatis  tiap waktu
