@@ -27,7 +27,7 @@ cheker=$(curl -s -I https://pse.kominfo.go.id/static/json-static/$1/0.json | gre
     fi
 }
 
-local_terdaftar(){
+lokal_terdaftar(){
 case="LOKAL_TERDAFTAR"
 filename="lokal_terdaftar.json"
 
@@ -72,7 +72,7 @@ filename="asing_dicabut.json"
 avail $case $filename
 }
 
-local_terdaftar
+lokal_terdaftar
 lokal_dihentikan
 lokal_dicabut
 
