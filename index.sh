@@ -1,15 +1,17 @@
 baseurl="https://pse.kominfo.go.id/static/json-static"
 basefolder="data"
 
+mkdir -p data
+
 generate () {
 limit=$(($1-1))
 
 for i in `seq 0 $limit`
 do
- echo "curl -Ss \"$baseurl/$2/$i.json\" | jq '.data[].attributes' | jq -sc '.' >> $basefolder/tmp_$filename" | sh
+ echo "curl -Ss \"$baseurl/$2/$i.json\" | jq '.data[].attributes' | jq -sc '.' >> $basefolder/tmp_$3" | sh
 done
-cat $basefolder/tmp_$filename | jq -sc 'flatten' > $basefolder/$filename
-rm $basefolder/tmp_$filename
+cat $basefolder/tmp_$3 | jq -sc 'flatten' > $basefolder/$3
+rm $basefolder/tmp_$3
 }
 
 
@@ -21,21 +23,6 @@ cheker=$(curl -s -I https://pse.kominfo.go.id/static/json-static/$1/0.json | gre
     totalpage=$(curl -Ss "$baseurl/$1/0.json" | jq '.meta.page.lastPage')
     generate $totalpage $1 $2
     fi
-}
-
-terdaftar(){
-case="LOKAL_TERDAFTAR"
-lokal=$(curl -Ss "$baseurl/$case/0.json" | jq '.meta.page.lastPage')
-
-limit_lokal=$(($lokal-1))
-
-for i in `seq 0 $limit_lokal`
-do
- echo "curl -Ss \"$baseurl/$case/$i.json\" | jq '.data[].attributes' | jq -sc '.' >> $basefolder/tmp_daftar.json" | sh
-done
-
-cat $basefolder/tmp_daftar.json | jq -sc 'flatten' > $basefolder/lokal_terdaftar.json
-rm $basefolder/tmp_daftar.json
 }
 
 local_terdaftar(){
